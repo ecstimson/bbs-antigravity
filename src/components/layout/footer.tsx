@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react"
 
@@ -8,7 +9,9 @@ export function Footer() {
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                     <div className="space-y-4">
                         <Link href="/" className="flex items-center space-x-2">
-                            <span className="text-xl font-bold">Beach Bird <span className="text-muted-foreground">Studios</span></span>
+                            <div className="relative h-8 w-auto">
+                                <Image src="/logos/full-logo.svg" alt="Beach Bird Studios" width={150} height={40} className="h-8 w-auto" />
+                            </div>
                         </Link>
                         <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
                             Digital experiences that drive results. We help businesses scale with data-driven design and engineering.

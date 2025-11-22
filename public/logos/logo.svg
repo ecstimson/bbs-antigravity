@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" fill="none">
-  <!-- Bird Icon (Simplified Sandpiper) -->
-  <path d="M60 30 C 50 25, 40 25, 30 30 C 20 35, 10 45, 20 55 C 25 60, 35 65, 45 60 L 50 75 L 45 80 M 50 75 L 55 80 M 45 60 C 55 65, 70 60, 75 50 C 80 40, 70 30, 60 30 Z M 75 50 L 90 55" stroke="#F2B641" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="#F2B641" />
-  
-  <!-- Text: Beach Bird Studios -->
-  <text x="110" y="65" font-family="sans-serif" font-weight="bold" font-size="40" fill="#4EA5E6">Beach Bird Studios</text>
-</svg>

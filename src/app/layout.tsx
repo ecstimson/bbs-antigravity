@@ -31,6 +31,11 @@ export const metadata: Metadata = {
     description: "Elevate your digital presence with Beach Bird Studios. We build high-performance websites that convert.",
     creator: "@beachbirdstudios",
   },
+  icons: {
+    icon: "/logos/icon-logo.svg",
+    shortcut: "/logos/icon-logo.svg",
+    apple: "/logos/icon-logo.svg",
+  },
 };
 
 import { ScrollToTop } from "@/components/ui/scroll-to-top";

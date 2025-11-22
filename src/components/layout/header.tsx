@@ -36,9 +36,9 @@ export function Header() {
         <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="container flex h-16 items-center justify-between">
                 <Link href="/" className="flex items-center space-x-2">
-                    <div className="relative h-8 w-8">
+                    <div className="relative h-8 w-auto">
                         {/* Placeholder for logo icon if needed, or just use the full SVG */}
-                        <Image src="/logos/logo.svg" alt="Beach Bird Studios" width={32} height={32} className="h-8 w-auto" />
+                        <Image src="/logos/full-logo.svg" alt="Beach Bird Studios" width={150} height={40} className="h-8 w-auto" />
                     </div>
 
                 </Link>
@@ -118,7 +118,7 @@ export function Header() {
                     </Button>
 
                     <Button variant="ghost" asChild className="mr-2">
-                        <Link href="/login">Login</Link>
+                        <Link href="/dashboard">Login</Link>
                     </Button>
                     <Button asChild>
                         <Link href="/contact">Start Project</Link>
@@ -168,7 +168,7 @@ export function Header() {
                                 </SheetClose>
                                 <SheetClose asChild>
                                     <Button variant="ghost" className="w-full mt-4" asChild>
-                                        <Link href="/login">Login</Link>
+                                        <Link href="/dashboard">Login</Link>
                                     </Button>
                                 </SheetClose>
                                 <SheetClose asChild>
