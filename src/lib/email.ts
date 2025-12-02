@@ -1,10 +1,6 @@
 import { Resend } from 'resend';
 
-if (!process.env.RESEND_API_KEY) {
-    throw new Error('RESEND_API_KEY is not defined');
-}
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || 're_123'); // Fallback to prevent build error, actual send will fail if invalid
 
 export interface ContactFormData {
     name: string;
