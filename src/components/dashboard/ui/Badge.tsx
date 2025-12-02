@@ -3,7 +3,7 @@ import React from 'react';
 type BadgeVariant = 'default' | 'success' | 'warning' | 'error' | 'outline';
 
 interface BadgeProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   variant?: BadgeVariant;
 }
 
@@ -15,7 +15,7 @@ const variants = {
   outline: 'bg-transparent border-border text-muted'
 };
 
-export const Badge = ({ children, variant = 'default' }: BadgeProps) => {
+export const Badge: React.FC<BadgeProps> = ({ children, variant = 'default' }) => {
   return (
     <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${variants[variant]}`}>
       {children}

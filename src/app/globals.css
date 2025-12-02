@@ -4,30 +4,32 @@
 
 @layer base {
   :root {
-    /* Light Mode (Ghost White Background) */
-    --background: 210 20% 98%; /* #F9FAFB */
-    --foreground: 216 28% 7%; /* #0D1317 */
+    /* Light Mode */
+    --background: 0 0% 100%;
+    /* White */
+    --foreground: 222 15% 13%;
+    /* Charcoal Text */
 
     --card: 0 0% 100%;
-    --card-foreground: 216 28% 7%;
+    --card-foreground: 222 15% 13%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 216 28% 7%;
+    --popover-foreground: 222 15% 13%;
 
     /* Blue Jeans Primary */
-    --primary: 206 76% 60%; /* #4EA5E6 */
+    --primary: 206 76% 60%;
     --primary-foreground: 0 0% 100%;
 
     /* Maximum Yellow Red Secondary */
-    --secondary: 40 88% 60%; /* #F2B641 */
-    --secondary-foreground: 216 28% 7%;
+    --secondary: 40 88% 60%;
+    --secondary-foreground: 222 15% 13%;
 
     --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted-foreground: 215.4 16.3% 40%;
 
     /* Royal Blue Light Accent */
-    --accent: 217 91% 60%; /* #3B82F6 */
-    --accent-foreground: 0 0% 100%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222 15% 13%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -47,8 +49,10 @@
 
   .dark {
     /* Dark Mode (Rich Black Background) */
-    --background: 216 28% 7%; /* #0D1317 */
-    --foreground: 210 20% 98%; /* #F9FAFB */
+    --background: 216 28% 7%;
+    /* #0D1317 */
+    --foreground: 210 20% 98%;
+    /* #F9FAFB */
 
     --card: 216 28% 10%;
     --card-foreground: 210 20% 98%;
@@ -63,7 +67,7 @@
     --secondary-foreground: 216 28% 7%;
 
     --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted-foreground: 215 20.2% 75%;
 
     --accent: 217 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
@@ -87,6 +91,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }

@@ -59,6 +59,9 @@ export default {
 					'5': 'hsl(var(--chart-5))'
 				}
 			},
+			textColor: {
+				muted: 'hsl(var(--muted-foreground))'
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',

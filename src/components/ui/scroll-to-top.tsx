@@ -35,7 +35,7 @@ export function ScrollToTop() {
     return (
         <Button
             size="icon"
-            className="fixed bottom-8 right-8 z-50 rounded-full shadow-lg animate-in fade-in slide-in-from-bottom-4 duration-300"
+            className="fixed bottom-24 right-8 z-50 rounded-full shadow-lg animate-in fade-in slide-in-from-bottom-4 duration-300"
             onClick={scrollToTop}
         >
             <ArrowUp className="h-4 w-4" />

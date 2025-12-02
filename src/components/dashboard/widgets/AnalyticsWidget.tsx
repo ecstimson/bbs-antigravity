@@ -1,7 +1,7 @@
 import React from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/dashboard/ui/Card';
-import { GENERATE_ANALYTICS_DATA } from '@/lib/dashboard/constants';
+import { GENERATE_ANALYTICS_DATA } from '@/components/dashboard/constants';
 
 const data = GENERATE_ANALYTICS_DATA(7);
 

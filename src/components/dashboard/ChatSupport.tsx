@@ -1,6 +1,7 @@
+"use client";
 
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, Paperclip, MoreVertical, ExternalLink, User, Smile } from 'lucide-react';
+import { MessageCircle, X, Send, Paperclip, ExternalLink } from 'lucide-react';
 
 interface Message {
   id: number;
@@ -80,18 +81,18 @@ export const ChatSupport = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
+    <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex flex-col items-end font-sans">
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="mb-4 w-[380px] h-[500px] bg-surface border border-border rounded-xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 duration-200">
+        <div className="mb-4 w-[calc(100vw-2rem)] md:w-[380px] h-[450px] md:h-[500px] bg-surface border border-border rounded-xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 duration-200">
 
           {/* Header */}
           <div className="bg-surface border-b border-border p-4 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-3">
               <div className="relative">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white font-bold shadow-inner overflow-hidden">
-                  <Image src="/logos/icon-logo.svg" alt="Beach Bird" width={40} height={40} className="w-6 h-6" />
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white font-bold shadow-inner">
+                  BB
                 </div>
                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-success rounded-full border-2 border-surface"></div>
               </div>
@@ -123,12 +124,12 @@ export const ChatSupport = () => {
 
                 {msg.sender === 'system' ? (
                   <div className="w-full flex justify-center my-2">
-                    <span className="text-[10px] text-muted bg-border/30 px-3 py-1 rounded-full uppercase tracking-wide">{msg.text}</span>
+                    <span className="text-[10px] text-muted bg-border/30 px-3 py-1 rounded-full uppercase tracking-wide text-center">{msg.text}</span>
                   </div>
                 ) : (
                   <div className={`flex gap-2 max-w-[85%] ${msg.sender === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
                     {msg.sender === 'agent' && (
-                      <div className="w-8 h-8 rounded-full bg-border flex items-center justify-center text-xs font-bold text-muted shrink-0 mt-1">
+                      <div className="w-8 h-8 rounded-full bg-border flex items-center justify-center text-xs font-bold text-muted shrink-0 mt-1 hidden sm:flex">
                         {msg.avatar}
                       </div>
                     )}
@@ -136,7 +137,7 @@ export const ChatSupport = () => {
                     <div>
                       {msg.sender === 'agent' && <span className="text-[10px] text-muted ml-1 block mb-1">{msg.name}</span>}
                       <div
-                        className={`px-4 py-2.5 rounded-2xl text-sm shadow-sm ${msg.sender === 'user'
+                        className={`px-3 py-2 md:px-4 md:py-2.5 rounded-2xl text-sm shadow-sm ${msg.sender === 'user'
                             ? 'bg-primary text-white rounded-br-none'
                             : 'bg-surface border border-border text-gray-200 rounded-bl-none'
                           }`}
@@ -157,7 +158,7 @@ export const ChatSupport = () => {
           {/* Input Area */}
           <div className="p-3 bg-surface border-t border-border shrink-0">
             <form onSubmit={handleSend} className="flex items-end gap-2 bg-background border border-border rounded-xl p-2 focus-within:border-primary/50 transition-colors">
-              <button type="button" className="p-2 text-muted hover:text-white transition-colors">
+              <button type="button" className="p-2 text-muted hover:text-white transition-colors hidden sm:block">
                 <Paperclip size={18} />
               </button>
               <textarea
@@ -192,7 +193,7 @@ export const ChatSupport = () => {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`h-14 w-14 rounded-full shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-105 ${isOpen
+        className={`h-12 w-12 md:h-14 md:w-14 rounded-full shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-105 ${isOpen
             ? 'bg-surface border border-border text-white'
             : 'bg-primary text-white hover:bg-primary-hover'
           }`}

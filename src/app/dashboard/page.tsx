@@ -1,15 +1,16 @@
-"use client"
+"use client";
 
-import React, { useContext } from 'react';
-import { PropertyContext } from '@/lib/dashboard/PropertyContext';
+import React from 'react';
+import Link from 'next/link';
+import { useDashboard } from '@/components/dashboard/DashboardContext';
 import { Card, CardContent } from '@/components/dashboard/ui/Card';
 import { Badge } from '@/components/dashboard/ui/Badge';
 import { AnalyticsWidget } from '@/components/dashboard/widgets/AnalyticsWidget';
 import { AdsWidget } from '@/components/dashboard/widgets/AdsWidget';
 import { ProjectGanttWidget } from '@/components/dashboard/widgets/ProjectGanttWidget';
-import { Users, TrendingUp, Star, DollarSign, ArrowRight, ArrowUp, AlertCircle } from 'lucide-react';
-import { MOCK_ACTIVITY, MOCK_LEADS, SERVICE_ICONS, SERVICE_NAMES } from '@/lib/dashboard/constants';
-import { ServiceType } from '@/lib/dashboard/types';
+import { Users, TrendingUp, Star, DollarSign } from 'lucide-react';
+import { MOCK_ACTIVITY, MOCK_LEADS, SERVICE_ICONS, SERVICE_NAMES } from '@/components/dashboard/constants';
+import { ServiceType } from '@/components/dashboard/types';
 
 const StatCard = ({ title, value, subtext, icon: Icon, trend }: any) => (
   <Card>
@@ -21,7 +22,7 @@ const StatCard = ({ title, value, subtext, icon: Icon, trend }: any) => (
         </div>
       </div>
       <div className="flex flex-col gap-1">
-        <span className="text-2xl font-bold text-white">{value}</span>
+        <span className="text-2xl font-bold text-gray-900 dark:text-white">{value}</span>
         <div className="flex items-center gap-2 text-xs">
           <span className="text-success flex items-center gap-0.5">
             <TrendingUp size={12} /> {trend}
@@ -34,17 +35,12 @@ const StatCard = ({ title, value, subtext, icon: Icon, trend }: any) => (
 );
 
 export default function Overview() {
-  const { currentProperty, allProperties } = useContext(PropertyContext);
+  const { currentProperty, allProperties } = useDashboard();
 
   // Determine what to show based on connected services or if "All" is selected
   const showAnalytics = currentProperty === 'all' || currentProperty.connectedServices.includes(ServiceType.GOOGLE_ANALYTICS);
   const showAds = currentProperty === 'all' || currentProperty.connectedServices.includes(ServiceType.GOOGLE_ADS);
   const showReviews = currentProperty === 'all' || currentProperty.connectedServices.includes(ServiceType.GOOGLE_BUSINESS);
-
-  // If "all" is selected, we just pretend we have all services for the overview
-  const connectedServicesList = currentProperty === 'all'
-    ? Object.values(ServiceType)
-    : currentProperty.connectedServices;
 
   return (
     <div className="p-8 space-y-8 max-w-[1600px] mx-auto pb-20">
@@ -52,7 +48,7 @@ export default function Overview() {
       {/* Welcome / Header Section */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-white">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
             {currentProperty === 'all' ? 'All Properties Overview' : currentProperty.name}
           </h1>
           <p className="text-muted mt-2">
@@ -62,7 +58,7 @@ export default function Overview() {
           </p>
         </div>
         <div className="flex gap-3">
-          <button className="bg-white text-black px-4 py-2 rounded-lg font-medium text-sm hover:bg-gray-200 transition-colors">
+          <button className="bg-white dark:bg-white text-black px-4 py-2 rounded-lg font-medium text-sm hover:bg-gray-200 transition-colors border border-gray-200 dark:border-transparent">
             Download Report
           </button>
         </div>
@@ -128,14 +124,14 @@ export default function Overview() {
           <Card className="h-[400px] flex flex-col">
             <CardContent className="p-0 flex-1 flex flex-col">
               <div className="p-6 pb-4 border-b border-border flex justify-between items-center">
-                <h3 className="font-medium">Recent Leads</h3>
-                <button className="text-xs text-primary hover:text-primary-hover">View All</button>
+                <h3 className="font-medium text-gray-900 dark:text-white">Recent Leads</h3>
+                <Link href="/dashboard/leads" className="text-xs text-primary hover:text-primary-hover hover:underline">View All</Link>
               </div>
               <div className="overflow-y-auto flex-1">
                 {MOCK_LEADS.map(lead => (
                   <div key={lead.id} className="p-4 border-b border-border/50 hover:bg-border/20 transition-colors group cursor-pointer">
                     <div className="flex justify-between items-start mb-1">
-                      <span className="font-medium text-sm text-white group-hover:text-primary transition-colors">{lead.name}</span>
+                      <span className="font-medium text-sm text-gray-900 dark:text-white group-hover:text-primary transition-colors">{lead.name}</span>
                       <span className="text-xs text-muted">{lead.date}</span>
                     </div>
                     <div className="flex justify-between items-center">
@@ -151,13 +147,13 @@ export default function Overview() {
           {/* Activity Feed */}
           <Card className="flex-1">
             <CardContent className="p-6">
-              <h3 className="font-medium mb-4">Live Activity</h3>
+              <h3 className="font-medium mb-4 text-gray-900 dark:text-white">Live Activity</h3>
               <div className="space-y-6 relative before:absolute before:inset-0 before:ml-2.5 before:w-0.5 before:-translate-x-1/2 before:bg-border before:h-full">
                 {MOCK_ACTIVITY.map(act => (
                   <div key={act.id} className="relative flex items-start gap-4">
                     <div className="absolute left-0 ml-2.5 -translate-x-1/2 w-2 h-2 rounded-full bg-primary ring-4 ring-background"></div>
                     <div className="pl-4">
-                      <p className="text-sm font-medium text-white">{act.title}</p>
+                      <p className="text-sm font-medium text-gray-900 dark:text-white">{act.title}</p>
                       <p className="text-xs text-muted mt-0.5">{act.description}</p>
                       <p className="text-[10px] text-muted mt-1 uppercase tracking-wide">{act.timestamp}</p>
                     </div>

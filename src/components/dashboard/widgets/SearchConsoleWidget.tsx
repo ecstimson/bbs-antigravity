@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Line } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/dashboard/ui/Card';
 import { Badge } from '@/components/dashboard/ui/Badge';
-import { GENERATE_SEARCH_CONSOLE_DATA, MOCK_KEYWORDS } from '@/lib/dashboard/constants';
+import { GENERATE_SEARCH_CONSOLE_DATA, MOCK_KEYWORDS } from '@/components/dashboard/constants';
 import { Search, ArrowUpRight, MousePointer2, Eye } from 'lucide-react';
 
 const data = GENERATE_SEARCH_CONSOLE_DATA(14);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/dashboard/ui/Card';
-import { GENERATE_ANALYTICS_DATA } from '@/lib/dashboard/constants';
+import { GENERATE_ANALYTICS_DATA } from '@/components/dashboard/constants';
 import { Badge } from '@/components/dashboard/ui/Badge';
 
 const data = GENERATE_ANALYTICS_DATA(7);
